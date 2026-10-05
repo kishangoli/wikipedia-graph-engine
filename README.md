@@ -52,6 +52,10 @@ Settings are in `backend/config.py`. Override them with exported `WIKI_*` enviro
 
 Defaults are 60 seconds per search (including input validation), four clicks deep, 200 uncached article expansions, 20,000 discovered articles, two concurrent Wikimedia requests, and a 24-hour cache lifetime. The displayed graph is a capped sample and does not restrict graph traversal.
 
+The graph uses a locally bundled D3 7.9.0 force-directed layout in a full-width sandbox, with draggable nodes, zoom/pan, a fit control, selectable labels, and connection highlighting when selecting a node. Start, destination, working, expanded, discovered, and route nodes have distinct colors. The destination is shown without invented edges until a qualifying link reaches it. The complete final route remains visible even outside the graph sample.
+
+Validated links stream in batches while an article is still being checked. Node colors reflect working and expanded articles, and the elapsed-time display continues updating between responses. A route can finish as soon as a validated link establishes the shortest path in the current BFS layer. Partially processed neighbor lists are never written to the cache.
+
 The database is created automatically at `data/cache.sqlite3`. Restarting keeps cached article data but loses active and recent searches. Cold searches can be slow because each expanded article's linked destinations must also be validated; repeating a completed expansion should use the cache.
 
 An internet connection is required for uncached articles. Configure `WIKI_USER_AGENT` with a meaningful contact URL or email before shared/public use, following [Wikimedia's access policy](https://www.mediawiki.org/wiki/Wikimedia_APIs/Access_policy).
