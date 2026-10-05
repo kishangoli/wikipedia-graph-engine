@@ -1,0 +1,20 @@
+:root { font-family: system-ui, sans-serif; color: #202832; background: #f6f7f9; }
+body { margin: 0; }
+main { max-width: 1100px; margin: 32px auto; padding: 0 20px; }
+h1 { margin-bottom: 8px; }
+h2 { font-size: 1.15rem; }
+form { display: flex; flex-wrap: wrap; align-items: end; gap: 16px; padding: 20px; background: white; border: 1px solid #d7dde4; }
+label { display: grid; gap: 8px; flex: 1 1 260px; }
+input, button { font: inherit; padding: 10px; border: 1px solid #a3aebc; border-radius: 4px; }
+.actions { display: flex; gap: 8px; }
+button { background: #e8eef6; cursor: pointer; }
+button:disabled { opacity: .5; cursor: default; }
+input:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid #618bba; outline-offset: 2px; }
+a { color: #245994; }
+#stats, .note, #graph-note { color: #526273; font-size: .9rem; }
+#graph-container { overflow: auto; max-height: 550px; background: white; border: 1px solid #d7dde4; }
+#graph { display: block; min-height: 150px; }
+#route li { padding: 5px 0; }
+.route-phrase { color: #526273; font-size: .9rem; }
+.error { color: #a42525; }
+.note { line-height: 1.6; }

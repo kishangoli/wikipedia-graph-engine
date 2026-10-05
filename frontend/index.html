@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wikipedia Path Finder</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Wikipedia Path Finder</h1>
+    <p>Find a route through linked words in English Wikipedia article text.</p>
+    <form id="search-form">
+      <label>Starting article<input id="start" name="start" placeholder="Cat" maxlength="500" required></label>
+      <label>Destination article<input id="destination" name="destination" placeholder="Mammal" maxlength="500" required></label>
+      <div class="actions"><button id="search-button" type="submit">Find path</button><button id="cancel-button" type="button" disabled>Cancel</button></div>
+    </form>
+    <p id="status" role="status" aria-live="polite">Enter exact article titles or English Wikipedia article URLs.</p>
+    <p id="stats"></p>
+    <section aria-labelledby="route-heading"><h2 id="route-heading">Route</h2><p id="route-summary">No search yet.</p><ol id="route"></ol></section>
+    <section aria-labelledby="graph-heading"><h2 id="graph-heading">Explored graph</h2><p id="graph-note">Nodes are grouped by click depth. Arrows follow article hyperlinks.</p><div id="graph-container"><svg id="graph" role="img" aria-label="Sample of the explored Wikipedia graph"></svg></div></section>
+    <p class="note">Live searches have time, depth, and page budgets. Reaching a limit does not mean no route exists. Wikipedia and cached article data can change.</p>
+  </main>
+</body>
+</html>
